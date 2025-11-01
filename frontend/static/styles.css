@@ -1,0 +1,299 @@
+:root {
+  --primary: #00bcd4;
+  --dark: #161b22;
+  --light: #f1f1f1;
+  --card-bg: rgba(28, 33, 41, 0.7);
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background: radial-gradient(1200px 600px at 50% -10%, rgba(0,188,212,0.08), transparent 60%), var(--dark);
+  color: var(--light);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app-header {
+  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0));
+  padding: 2rem 1.5rem 1rem;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+.brand { display: flex; align-items: center; justify-content: center; gap: .75rem; }
+.brand-icon { font-size: 1.8rem; }
+.brand-title {
+  background: linear-gradient(90deg, #00e5ff, #00bcd4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: .5px;
+}
+.brand-tag { margin: .3rem 0 0; opacity: .8; text-align: center; }
+
+/* Search bar */
+.searchbar { 
+  margin: 1rem auto 0; 
+  display: flex; 
+  gap: .5rem; 
+  justify-content: center; 
+  max-width: 720px; 
+}
+.searchbar input {
+  flex: 1;
+  padding: .9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,0.06);
+  color: var(--light);
+  outline: none;
+}
+.searchbar input::placeholder { color: rgba(255,255,255,0.6); }
+.searchbar button {
+  padding: .9rem 1.1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,188,212,0.6);
+  background: linear-gradient(90deg,#00e5ff,#00bcd4);
+  color: #002b36;
+  font-weight: 600;
+  cursor: pointer;
+}
+.searchbar button:hover { filter: brightness(1.05); }
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topic-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topic-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(0,188,212,0.6);
+  box-shadow: 0 10px 22px rgba(0, 188, 212, 0.12);
+}
+
+.topic-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.topic-title {
+  color: var(--primary);
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background: var(--card-bg);
+  margin: 5vh auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  border-radius: 12px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.close-modal {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  font-size: 1.8rem;
+  color: var(--primary);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.close-modal:hover {
+  transform: scale(1.1);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.news-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.news-card:hover {
+  transform: translateX(5px);
+}
+
+.news-card h3 {
+  color: var(--primary);
+  margin-top: 0;
+}
+
+.news-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.news-card a:hover {
+  text-decoration: underline;
+}
+
+:root {
+  --primary: #00bcd4;
+  --dark: #161b22;
+  --light: #f1f1f1;
+  --card-bg: rgba(28, 33, 41, 0.7);
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
+
+/* Add visualization grid styles */
+.visualization-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.vis-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border-radius: 12px;
+  padding: 1.5rem;
+  min-height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden; /* prevent children from overflowing */
+}
+
+.vis-card h3 {
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Ensure images (wordcloud) scale within the card */
+.vis-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Add article metadata styles */
+.article-meta {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.sentiment {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sentiment.positive { color: #4caf50; }
+.sentiment.negative { color: #f44336; }
+.sentiment.neutral { color: #ffc107; }
+
+.entities {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.entity {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(0, 188, 212, 0.12);
+  color: var(--primary);
+}
+
+.category-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e0f7fa;
+  border: 1px solid rgba(0, 188, 212, 0.4);
+  margin-left: .5rem;
+  font-size: .85rem;
+}
+
+/* Loading animation */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary);
+}
+
+.loading:after {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  margin-left: 0.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .visualization-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    width: 95%;
+    margin: 2vh auto;
+    padding: 1rem;
+  }
+  
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .topic-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 1rem;
+  }
+}

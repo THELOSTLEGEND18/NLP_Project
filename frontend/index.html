@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsScope</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- Plotly for client-side charts -->
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <div class="brand">
+            <span class="brand-icon">📰</span>
+            <h1 class="brand-title">NewsScope</h1>
+        </div>
+        <p class="brand-tag">AI-Powered Real-Time News Intelligence Dashboard</p>
+        <form id="searchForm" class="searchbar" onsubmit="return handleSearch(event)">
+            <input id="searchInput" type="text" placeholder="Search any topic (e.g., AI, cricket, war)" aria-label="Search news" />
+            <button type="submit" aria-label="Run search">Search</button>
+        </form>
+    </header>
+
+    <main>
+        <div id="topicGrid" class="topic-grid">
+            <!-- Topics will be loaded here -->
+        </div>
+    </main>
+
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
