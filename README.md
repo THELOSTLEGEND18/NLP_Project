@@ -82,6 +82,27 @@ NEWS_API_KEY=your_newsapi_key_here
 ### 6. Run the Application
 
 #### Start the Backend Server
+
+Windows (PowerShell): run in the current window
+```powershell
+cd backend
+..\.venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000
+```
+
+Windows (PowerShell): start in a new window (recommended on Windows)
+```powershell
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd $((Resolve-Path backend).Path); & ..\\.venv\\Scripts\\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000"
+```
+
+Notes for Windows:
+- Avoid using `--reload` (file-watcher) as it can cause shutdowns on Windows.
+- If the server still exits immediately, try disabling lifespan events:
+```powershell
+cd backend
+..\.venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000 --no-lifespan
+```
+
+macOS/Linux:
 ```bash
 cd backend
 python -m uvicorn main:app --host 127.0.0.1 --port 8000
@@ -162,6 +183,18 @@ NLP_Project/
 2. **en_core_web_sm** - spaCy model for NER and text processing
 3. **NLTK VADER** - Sentiment analysis
 4. **NLTK** - Keyword extraction
+
+## 🧪 NLP Topics Used
+
+- **Text Cleaning & Normalization**: basic HTML/whitespace cleanup and lowercasing for consistent analysis
+- **Abstractive Summarization**: generates human-like summaries of articles (DistilBART)
+- **Extractive Summarization (TextRank-style)**: fallback summary using sentence similarity + PageRank
+- **Named Entity Recognition (NER)**: detects people, organizations, locations (spaCy)
+- **Sentiment Analysis**: classifies article tone as Positive/Negative/Neutral (VADER)
+- **Keyword Extraction**: simple frequency-based keywords for quick topic cues
+- **Topic Classification (title-based, optional)**: predicts a category from the article title (T5 model when available)
+- **Topic Clustering**: groups related articles using embeddings or TF‑IDF + KMeans
+- **Entity Network Graph**: builds connections between articles and entities for relationship visualization
 
 ## 🐛 Troubleshooting
 
