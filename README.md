@@ -227,3 +227,56 @@ This project is for educational purposes.
 - Hugging Face for transformer models
 - spaCy for NLP capabilities
 - Plotly for visualization tools
+
+## 📷 Screenshots
+
+Drop screenshots into `frontend/static/visuals/` and they will render here. Suggested captures:
+
+- Home/Search view
+- Topic results (e.g., Sports)
+- Article card (summary + sentiment badge + entities)
+- Visualizations: Word Cloud, Sentiment Heatmap, Network Graph
+
+Example (replace filenames with your own):
+
+![Home](frontend/static/visuals/home.png)
+![Topic Results](frontend/static/visuals/topic_sports.png)
+![Article Card](frontend/static/visuals/article_card.png)
+![Word Cloud](frontend/static/visuals/wordcloud.png)
+![Sentiment Heatmap](frontend/static/visuals/heatmap.png)
+![Entity Network](frontend/static/visuals/network.png)
+
+Tips:
+- Use 1366×768 or 1920×1080 resolution for crisp images
+- Keep filenames lowercase, hyphenated or underscored
+- Commit screenshots to the repo so they render on GitHub
+
+## 🗺️ Architecture Diagram
+
+Mermaid (renders on GitHub):
+
+```mermaid
+flowchart TD
+      U[User in Browser] --> F[Frontend (HTML/CSS/JS + Plotly)]
+      F -->|HTTP/JSON| B[FastAPI Backend]
+      B -->|Fetch| N[(NewsAPI)]
+      B --> P[AI/NLP Pipeline]
+      P -->|Summaries| B
+      P -->|Sentiment/NER/Keywords| B
+      B --> F
+
+      subgraph Backend
+         B
+         P
+      end
+```
+
+ASCII alternative:
+
+```
+User → Frontend (HTML/CSS/JS, Plotly)
+         → FastAPI Backend (Uvicorn)
+            → NewsFetcher → NewsAPI
+            → NLP Pipeline → Summarizer (DistilBART), NER (spaCy), Sentiment (VADER), Keywords, Clustering
+         → Frontend Visualizations (Word Cloud, Heatmap, Network)
+```
