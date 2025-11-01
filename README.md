@@ -228,30 +228,7 @@ This project is for educational purposes.
 - spaCy for NLP capabilities
 - Plotly for visualization tools
 
-## 📷 Screenshots
-
-Drop screenshots into `frontend/static/visuals/` and they will render here. Suggested captures:
-
-- Home/Search view
-- Topic results (e.g., Sports)
-- Article card (summary + sentiment badge + entities)
-- Visualizations: Word Cloud, Sentiment Heatmap, Network Graph
-
-Example (replace filenames with your own):
-
-![Home](frontend/static/visuals/home.png)
-![Topic Results](frontend/static/visuals/topic_sports.png)
-![Article Card](frontend/static/visuals/article_card.png)
-![Word Cloud](frontend/static/visuals/wordcloud.png)
-![Sentiment Heatmap](frontend/static/visuals/heatmap.png)
-![Entity Network](frontend/static/visuals/network.png)
-
-Tips:
-- Use 1366×768 or 1920×1080 resolution for crisp images
-- Keep filenames lowercase, hyphenated or underscored
-- Commit screenshots to the repo so they render on GitHub
-
-## 🗺️ Architecture Diagram
+## ️ Architecture Diagram
 
 Mermaid (renders on GitHub):
 
